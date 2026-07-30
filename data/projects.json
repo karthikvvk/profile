@@ -1,0 +1,45 @@
+{
+  "updated_at": "2026-07-30T00:00:00Z",
+  "projects": [
+    {
+      "name": "GPSTracker",
+      "path": "/gpstracker",
+      "description": "Offline-first Flutter tracker with a Flask/Socket.IO relay backend on AWS EC2 — no server-side GPS storage, incremental peer-to-peer sync.",
+      "tags": ["flutter", "flask", "socket.io", "aws-ec2"],
+      "status": "pending",
+      "url": ""
+    },
+    {
+      "name": "CI/CD Pipeline",
+      "path": "/cicd",
+      "description": "Automated build → test → deploy pipeline used to ship the projects in this registry.",
+      "tags": ["ci/cd", "github-actions"],
+      "status": "pending",
+      "url": ""
+    },
+    {
+      "name": "Distributed Architecture Project",
+      "path": "/distributed",
+      "description": "[Fill in — one line on what this system does and its distribution model.]",
+      "tags": ["distributed-systems"],
+      "status": "pending",
+      "url": ""
+    },
+    {
+      "name": "AWS Project",
+      "path": "/aws-project",
+      "description": "[Fill in — one line on what this deploys and which AWS services it uses.]",
+      "tags": ["aws"],
+      "status": "pending",
+      "url": ""
+    },
+    {
+      "name": "SCM Analytics Dashboard",
+      "path": "/scm",
+      "description": "Supply chain analytics — late-delivery risk and supplier scorecarding, visualized in Power BI.",
+      "tags": ["power-bi", "scm", "data-analysis"],
+      "status": "pending",
+      "url": ""
+    }
+  ]
+}
