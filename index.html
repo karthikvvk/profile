@@ -1,64 +1,112 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>[Your Name] — Systems Registry</title>
-<meta name="description" content="Backend & distributed systems engineer. Live registry of deployed projects." />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css" />
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Karthik Venkatasubramanian Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
+    <div class="scanline" aria-hidden="true"></div>
 
-  <div class="scanline" aria-hidden="true"></div>
+    <main class="wrap">
+      <!-- ============ HEADER / PROFILE ============ -->
+      <header class="header">
+        <h1 class="name">Karthik Venkatasubramanian</h1>
+        <!-- <p class="title">
+          [Your Title — e.g. Backend &amp; Distributed Systems Engineer]
+        </p> -->
+        <!-- <p class="bio">
+          [One or two lines about you — what you build and what you're into.
+          e.g. I build relay-based distributed systems and ship them to AWS on a
+          free-tier budget.]
+        </p> -->
 
-  <main class="wrap">
+        <nav class="links" aria-label="Profile links">
+          <a href="mailto:vkarthik5002@gmail.com">email</a>
+          <a href="https://github.com/karthikvvk" target="_blank" rel="noopener"
+            >github</a
+          >
+          <a
+            href="https://www.linkedin.com/in/karthik-venkatasubramanian/"
+            target="_blank"
+            rel="noopener"
+            >linkedin</a
+          >
+          <a
+            href="https://drive.google.com/file/d/1NqsZrNPAK8mX45kA8t3MVdWGISEvtEp9/view?usp=sharing"
+            target="_blank"
+            rel="noopener"
+            >resume.pdf</a
+          >
+        </nav>
+      </header>
 
-    <!-- ============ HEADER / PROFILE ============ -->
-    <header class="header">
-      <div class="header-top">
-        <span class="tag">// registry</span>
-        <span class="clock" id="clock" aria-hidden="true"></span>
-      </div>
+      <!-- ============ REGISTRY ============ -->
+      <section class="registry" aria-labelledby="registry-heading">
+        <div class="registry-head">
+          <h2 id="registry-heading">Projects</h2>
+          <span class="sync-meta" id="syncMeta">connecting to registry…</span>
+        </div>
 
-      <h1 class="name">[Your Name]</h1>
-      <p class="title">[Your Title — e.g. Backend &amp; Distributed Systems Engineer]</p>
-      <p class="bio">
-        [One or two lines about you — what you build and what you're into.
-        e.g. I build relay-based distributed systems and ship them to AWS on a free-tier budget.]
-      </p>
+        <div id="registryList" class="registry-list" aria-live="polite">
+          <!-- skeleton rows while loading -->
+          <div class="row skeleton">
+            <div class="pulse-dot idle"></div>
+            <div class="skel-line"></div>
+          </div>
+          <div class="row skeleton">
+            <div class="pulse-dot idle"></div>
+            <div class="skel-line"></div>
+          </div>
+          <div class="row skeleton">
+            <div class="pulse-dot idle"></div>
+            <div class="skel-line"></div>
+          </div>
+        </div>
+      </section>
 
-      <nav class="links" aria-label="Profile links">
-        <a href="mailto:you@example.com">email</a>
-        <a href="https://github.com/yourhandle" target="_blank" rel="noopener">github</a>
-        <a href="https://linkedin.com/in/yourhandle" target="_blank" rel="noopener">linkedin</a>
-        <a href="/resume.pdf" target="_blank" rel="noopener">resume.pdf</a>
-      </nav>
-    </header>
+      <!-- ============ CERTIFICATES ============ -->
+      <section class="certs-section" aria-labelledby="certs-heading">
+        <div class="section-head">
+          <h2 id="certs-heading">Certificates</h2>
+        </div>
+        <div class="certs-list" id="certsList" aria-live="polite">
+          <!-- skeleton while loading -->
+          <div class="cert-card skeleton">
+            <div class="pulse-dot idle"></div>
+            <div class="skel-line"></div>
+          </div>
+        </div>
+      </section>
 
-    <!-- ============ REGISTRY ============ -->
-    <section class="registry" aria-labelledby="registry-heading">
-      <div class="registry-head">
-        <h2 id="registry-heading">deployed_systems</h2>
-        <span class="sync-meta" id="syncMeta">connecting to registry…</span>
-      </div>
+      <!-- ============ EXTRACURRICULARS / HOBBIES ============ -->
+      <section class="expand-section" aria-labelledby="extras-heading">
+        <button
+          class="expand-toggle"
+          id="extrasToggle"
+          aria-expanded="false"
+          aria-controls="extrasPanel"
+        >
+          <span class="expand-chevron" aria-hidden="true">▶</span>
+          <h2 id="extras-heading">Extracurriculars &amp; Hobbies</h2>
+          <span class="expand-hint">click to expand</span>
+        </button>
 
-      <div id="registryList" class="registry-list" aria-live="polite">
-        <!-- skeleton rows while loading -->
-        <div class="row skeleton"><div class="pulse-dot idle"></div><div class="skel-line"></div></div>
-        <div class="row skeleton"><div class="pulse-dot idle"></div><div class="skel-line"></div></div>
-        <div class="row skeleton"><div class="pulse-dot idle"></div><div class="skel-line"></div></div>
-      </div>
-    </section>
+        <div class="expand-panel" id="extrasPanel" hidden>
+          <div class="extras-grid" id="extrasGrid" aria-live="polite">
+            <!-- populated from data/projects.json -->
+          </div>
+        </div>
+      </section>
+    </main>
 
-    <footer class="footer">
-      <p>This page reads <code>data/projects.json</code> at load time — nothing here is hand-edited when a project ships.</p>
-    </footer>
-
-  </main>
-
-  <script src="assets/script.js"></script>
-</body>
+    <script src="assets/script.js"></script>
+  </body>
 </html>

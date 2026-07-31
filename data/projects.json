@@ -3,43 +3,71 @@
   "projects": [
     {
       "name": "GPSTracker",
-      "path": "/gpstracker",
-      "description": "Offline-first Flutter tracker with a Flask/Socket.IO relay backend on AWS EC2 — no server-side GPS storage, incremental peer-to-peer sync.",
-      "tags": ["flutter", "flask", "socket.io", "aws-ec2"],
+      "path": "https://github.com/karthikvvk/GPSTrackerBackend",
+      "description": "A GPS Tracking application that achieves free built-in way by Fused-location method to access location and share it to family via internet.",
+      "tags": ["flutter", "flask", "socket.io"],
       "status": "pending",
       "url": ""
     },
     {
-      "name": "CI/CD Pipeline",
-      "path": "/cicd",
-      "description": "Automated build → test → deploy pipeline used to ship the projects in this registry.",
-      "tags": ["ci/cd", "github-actions"],
+      "name": "MultiLangTranscriber",
+      "path": "https://github.com/karthikvvk/Multi-Lang-Transcriber.git",
+      "description": "A modular FastAPI system for multilingual video translation — extracts audio/frames, uses RAG-enhanced Whisper STT with visual context, refines transcription via LLM, translates with Google Translate, and reconstructs dubbed video. Supports local CPU & Google Colab GPU.",
+      "tags": ["Multi Lingual", "STT", "RAG", "Transcription", "Visual- Context"],
       "status": "pending",
       "url": ""
     },
     {
-      "name": "Distributed Architecture Project",
-      "path": "/distributed",
-      "description": "[Fill in — one line on what this system does and its distribution model.]",
-      "tags": ["distributed-systems"],
-      "status": "pending",
+      "name": "TRACE",
+      "path": "https://github.com/magizhanj/TRACE",
+      "description": "TRACE is an offline-first browser productivity agent built with a Chrome MV3 extension and a local FastAPI backend. It silently watches your browser activity, infers intent, and surfaces pending task reminders at the right moment - without you ever needing to ask. All data lives in SQLite on your machine, with PII stripping baked in from day one.",
+      "tags": ["MCP", "Browser-Agent", "MultiModel"],
+      "status": "Not Applicable",
       "url": ""
     },
     {
-      "name": "AWS Project",
-      "path": "/aws-project",
-      "description": "[Fill in — one line on what this deploys and which AWS services it uses.]",
-      "tags": ["aws"],
-      "status": "pending",
+      "name": "LANFXplorer",
+      "path": "https://github.com/karthikvvk/LANFXplorer",
+      "description": "QUIC protocol based P2P FileSharing app. Uses QUIC_API as backend. Can work in LAN/WIFI.",
+      "tags": ["P2P", "FileSharing", "QUIC", "Networking"],
+      "status": "Not Applicable",
       "url": ""
     },
     {
-      "name": "SCM Analytics Dashboard",
-      "path": "/scm",
-      "description": "Supply chain analytics — late-delivery risk and supplier scorecarding, visualized in Power BI.",
-      "tags": ["power-bi", "scm", "data-analysis"],
-      "status": "pending",
+      "name": "sndcpy",
+      "path": "https://github.com/karthikvvk/sndcpy.git",
+      "description": "Contributed to sndcpy enabling GUI and no-debugger with wireless output.",
+      "status": "Not Applicable",
       "url": ""
+    },
+    {
+      "name": "okular",
+      "path": "https://github.com/karthikvvk/okular.git",
+      "description": "Contributed to Okular implementing Async printing option.",
+      "status": "Not Applicable",
+      "url": ""
+    }
+  ],
+  "certificates": [
+    {
+      "name": "AWS Certified Cloud Architect – Practitioner",
+      "issuer": "Amazon Web Services",
+      "year": "2024",
+      "verify_url": "https://cp.certmetrics.com/amazon/en/public/verify/credential/69df09101a284277a22a1b1a4bc3626c"
+    }
+  ],
+  "extras": [
+    {
+      "name": "Open Source Contributions",
+      "desc": "Active contributor to OSS projects — bug fixes, docs, and small features across several repos."
+    },
+    {
+      "name": "Home Labing",
+      "desc": "Building of daily day applications in my home lab that are not available in the market for free of cost."
+    },
+    {
+      "name": "Driving",
+      "desc": "Traveling goes along with long drives, which is why i drive."
     }
   ]
 }
