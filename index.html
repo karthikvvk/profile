@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Karthik Venkatasubramanian Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio of Karthik Venkatasubramanian — backend engineer building distributed systems, FastAPI services, and P2P networking tools."
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -29,22 +33,29 @@
         </p> -->
 
         <nav class="links" aria-label="Profile links">
-          <a href="mailto:vkarthik5002@gmail.com">email</a>
+          <a href="mailto:vkarthik5002@gmail.com">Email</a>
           <a href="https://github.com/karthikvvk" target="_blank" rel="noopener"
-            >github</a
+            >Github</a
           >
           <a
             href="https://www.linkedin.com/in/karthik-venkatasubramanian/"
             target="_blank"
             rel="noopener"
-            >linkedin</a
+            >Linkedin</a
           >
           <a
             href="https://drive.google.com/file/d/1NqsZrNPAK8mX45kA8t3MVdWGISEvtEp9/view?usp=sharing"
             target="_blank"
             rel="noopener"
-            >resume.pdf</a
+            >Resume</a
           >
+          <button
+            class="btn-download"
+            id="btnDownloadPdf"
+            aria-label="Download portfolio as PDF"
+          >
+            <span aria-hidden="true">⬇</span> Download as PDF
+          </button>
         </nav>
       </header>
 
@@ -86,6 +97,16 @@
         </div>
       </section>
 
+      <!-- ============ SKILLS ============ -->
+      <section class="skills-section" aria-labelledby="skills-heading">
+        <div class="section-head">
+          <h2 id="skills-heading">Skills</h2>
+        </div>
+        <div class="skills-pills" id="skillsList" aria-live="polite">
+          <!-- populated from data/graph.json -->
+        </div>
+      </section>
+
       <!-- ============ EXTRACURRICULARS / HOBBIES ============ -->
       <section class="expand-section" aria-labelledby="extras-heading">
         <button
@@ -107,6 +128,11 @@
       </section>
     </main>
 
+    <!-- ============ CITATION OVERLAY ============ -->
+    <div id="citation-overlay" role="dialog" aria-modal="true" hidden></div>
+
+    <script src="assets/graph.js"></script>
+    <script src="assets/popup.js"></script>
     <script src="assets/script.js"></script>
   </body>
 </html>

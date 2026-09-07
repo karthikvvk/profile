@@ -113,9 +113,13 @@ function renderRow(project, commitLabel) {
 // ---------------------------------------------------------------
 const CERTS_EL = document.getElementById('certsList');
 
-function renderCert(cert) {
+function renderCert(cert, entityId) {
+  const clickAttrs = entityId
+    ? ` data-entity-id="${escapeAttr(entityId)}" class="cert-card cert-clickable" tabindex="0" role="button" aria-label="View citation graph for ${escapeAttr(cert.name)}"`
+    : ` class="cert-card"`;
+
   return `
-    <div class="cert-card">
+    <div${clickAttrs}>
       <div class="cert-icon" aria-hidden="true">◈</div>
       <div class="cert-body">
         <div class="cert-name">${escapeHtml(cert.name)}</div>
@@ -138,9 +142,13 @@ function renderCert(cert) {
 // ---------------------------------------------------------------
 const EXTRAS_EL = document.getElementById('extrasGrid');
 
-function renderExtra(item) {
+function renderExtra(item, entityId) {
+  const clickAttrs = entityId
+    ? ` data-entity-id="${escapeAttr(entityId)}" class="extra-item extra-clickable" tabindex="0" role="button" aria-label="View citation graph for ${escapeAttr(item.name)}"`
+    : ` class="extra-item"`;
+
   return `
-    <div class="extra-item">
+    <div${clickAttrs}>
       <div class="extra-body">
         <div class="extra-name">${escapeHtml(item.name)}</div>
         <div class="extra-desc">${escapeHtml(item.desc)}</div>
@@ -150,13 +158,98 @@ function renderExtra(item) {
 }
 
 // ---------------------------------------------------------------
-// Registry fetch + render (projects + certs + extras)
+// Skills section
+// ---------------------------------------------------------------
+const SKILLS_EL = document.getElementById('skillsList');
+
+function renderSkills(entities) {
+  if (!SKILLS_EL) return;
+  const skills = Object.entries(entities)
+    .filter(([, e]) => e.type === 'skill')
+    .sort((a, b) => a[1].title.localeCompare(b[1].title));
+
+  if (skills.length === 0) {
+    SKILLS_EL.innerHTML = `<div class="empty-state">no skills indexed yet</div>`;
+    return;
+  }
+
+  SKILLS_EL.innerHTML = skills.map(([id, skill]) => `
+    <button class="skill-pill"
+            data-entity-id="${escapeAttr(id)}"
+            aria-label="Explore ${escapeAttr(skill.title)} citation graph">
+      <span class="skill-pill-icon" aria-hidden="true">◆</span>
+      ${escapeHtml(skill.title)}
+    </button>
+  `).join('');
+
+  // Wire click handlers
+  SKILLS_EL.querySelectorAll('.skill-pill[data-entity-id]').forEach(el => {
+    el.addEventListener('click', () => {
+      CitationPopup.open(el.getAttribute('data-entity-id'), el);
+    });
+    el.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        CitationPopup.open(el.getAttribute('data-entity-id'), el);
+      }
+    });
+  });
+}
+
+// ---------------------------------------------------------------
+// Wire click handlers to an already-rendered container
+// ---------------------------------------------------------------
+function wireClickHandlers(container) {
+  if (!container) return;
+  container.querySelectorAll('[data-entity-id]').forEach(el => {
+    el.addEventListener('click', (e) => {
+      // Don't intercept clicks on the verify link inside cert cards
+      if (e.target.closest('a')) return;
+      CitationPopup.open(el.getAttribute('data-entity-id'), el);
+    });
+    el.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        CitationPopup.open(el.getAttribute('data-entity-id'), el);
+      }
+    });
+  });
+}
+
+// ---------------------------------------------------------------
+// Build entity-id lookup from graph.json keyed by entity title
+// ---------------------------------------------------------------
+function buildTitleIndex(entities) {
+  const idx = {};
+  for (const [id, ent] of Object.entries(entities)) {
+    if (ent.ref) idx[ent.ref] = id;
+    idx[ent.title] = id;
+  }
+  return idx;
+}
+
+// ---------------------------------------------------------------
+// Registry fetch + render (projects + certs + extras + skills)
 // ---------------------------------------------------------------
 async function loadRegistry() {
   try {
-    const res = await fetch('data/projects.json', { cache: 'no-store' });
-    if (!res.ok) throw new Error(`status ${res.status}`);
-    const data = await res.json();
+    // Fetch projects.json and graph.json in parallel
+    const [projRes, graphRes] = await Promise.all([
+      fetch('data/projects.json', { cache: 'no-store' }),
+      fetch('data/graph.json',    { cache: 'no-store' }),
+    ]);
+
+    if (!projRes.ok) throw new Error(`projects.json status ${projRes.status}`);
+    const data  = await projRes.json();
+
+    // Graph may fail gracefully — features degrade but site still works
+    let graphData = null;
+    if (graphRes.ok) {
+      graphData = await graphRes.json();
+      CitationPopup.attachGraph(graphData);
+    }
+
+    const titleIdx = graphData ? buildTitleIndex(graphData.entities) : {};
 
     // ---- Projects ----
     const projects = Array.isArray(data.projects) ? data.projects : [];
@@ -188,9 +281,16 @@ async function loadRegistry() {
       if (certs.length === 0) {
         CERTS_EL.innerHTML = `<div class="empty-state">no certificates listed yet</div>`;
       } else {
-        CERTS_EL.innerHTML = certs.map(renderCert).join('');
+        CERTS_EL.innerHTML = certs.map(cert => {
+          const entityId = titleIdx[cert.name] || null;
+          return renderCert(cert, entityId);
+        }).join('');
+        wireClickHandlers(CERTS_EL);
       }
     }
+
+    // ---- Skills ----
+    if (graphData) renderSkills(graphData.entities);
 
     // ---- Extras ----
     if (EXTRAS_EL) {
@@ -198,7 +298,11 @@ async function loadRegistry() {
       if (extras.length === 0) {
         EXTRAS_EL.innerHTML = `<div class="empty-state">nothing listed yet</div>`;
       } else {
-        EXTRAS_EL.innerHTML = extras.map(renderExtra).join('');
+        EXTRAS_EL.innerHTML = extras.map(item => {
+          const entityId = titleIdx[item.name] || null;
+          return renderExtra(item, entityId);
+        }).join('');
+        wireClickHandlers(EXTRAS_EL);
       }
     }
 
@@ -207,6 +311,7 @@ async function loadRegistry() {
     if (META_EL) META_EL.textContent = 'sync failed';
     if (CERTS_EL) CERTS_EL.innerHTML = `<div class="empty-state">failed to load</div>`;
     if (EXTRAS_EL) EXTRAS_EL.innerHTML = `<div class="empty-state">failed to load</div>`;
+    console.error('[registry]', err);
   }
 }
 
@@ -224,5 +329,31 @@ loadRegistry();
     const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
     toggle.setAttribute('aria-expanded', String(!isExpanded));
     panel.hidden = isExpanded;
+  });
+})();
+
+// ---------------------------------------------------------------
+// Download PDF
+// ---------------------------------------------------------------
+(function () {
+  const btn = document.getElementById('btnDownloadPdf');
+  if (!btn) return;
+  btn.addEventListener('click', () => {
+    // Expand hobbies panel for print
+    const panel = document.getElementById('extrasPanel');
+    const toggle = document.getElementById('extrasToggle');
+    const wasHidden = panel && panel.hidden;
+    if (wasHidden) {
+      panel.hidden = false;
+      if (toggle) toggle.setAttribute('aria-expanded', 'true');
+    }
+    window.print();
+    // Restore state after print dialog closes
+    if (wasHidden) {
+      setTimeout(() => {
+        panel.hidden = true;
+        if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      }, 500);
+    }
   });
 })();

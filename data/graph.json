@@ -1,0 +1,165 @@
+{
+  "entities": {
+    "project:gpstracker": {
+      "type": "project",
+      "title": "GPSTracker",
+      "ref": "GPSTracker",
+      "description": "A GPS Tracking application that achieves free built-in way by Fused-location method to access location and share it to family via internet.",
+      "url": "https://github.com/karthikvvk/GPSTrackerBackend"
+    },
+    "project:multilangtranscriber": {
+      "type": "project",
+      "title": "MultiLangTranscriber",
+      "ref": "MultiLangTranscriber",
+      "description": "A modular FastAPI system for multilingual video translation — extracts audio/frames, uses RAG-enhanced Whisper STT with visual context, refines transcription via LLM, translates with Google Translate, and reconstructs dubbed video.",
+      "url": "https://github.com/karthikvvk/Multi-Lang-Transcriber"
+    },
+    "project:trace": {
+      "type": "project",
+      "title": "TRACE",
+      "ref": "TRACE",
+      "description": "An offline-first browser productivity agent built with a Chrome MV3 extension and a local FastAPI backend. Silently watches browser activity, infers intent, and surfaces pending task reminders. All data lives in SQLite with PII stripping baked in.",
+      "url": "https://github.com/magizhanj/TRACE"
+    },
+    "project:lanfxplorer": {
+      "type": "project",
+      "title": "LANFXplorer",
+      "ref": "LANFXplorer",
+      "description": "QUIC protocol based P2P FileSharing app. Uses QUIC_API as backend. Can work in LAN/WIFI.",
+      "url": "https://github.com/karthikvvk/LANFXplorer"
+    },
+    "project:sndcpy": {
+      "type": "project",
+      "title": "sndcpy",
+      "ref": "sndcpy",
+      "description": "OSS contribution enabling GUI and no-debugger mode with wireless audio output on Android.",
+      "url": "https://github.com/karthikvvk/sndcpy"
+    },
+    "project:okular": {
+      "type": "project",
+      "title": "okular",
+      "ref": "okular",
+      "description": "OSS contribution to the KDE document viewer implementing the Async printing option.",
+      "url": "https://github.com/karthikvvk/okular"
+    },
+
+    "cert:aws-ccp": {
+      "type": "certification",
+      "title": "AWS Certified Cloud Architect – Practitioner",
+      "ref": "AWS CCP",
+      "description": "Validates foundational knowledge of AWS cloud services, architecture principles, security, and cost optimisation strategies.",
+      "issuer": "Amazon Web Services",
+      "year": "2024",
+      "verify_url": "https://cp.certmetrics.com/amazon/en/public/verify/credential/69df09101a284277a22a1b1a4bc3626c"
+    },
+
+    "skill:flutter": {
+      "type": "skill",
+      "title": "Flutter",
+      "description": "Cross-platform mobile UI toolkit by Google. Used to build native-compiled apps for mobile from a single Dart codebase."
+    },
+    "skill:flask": {
+      "type": "skill",
+      "title": "Flask",
+      "description": "Lightweight Python web framework. Used for rapid API development and socket-based real-time backends."
+    },
+    "skill:socketio": {
+      "type": "skill",
+      "title": "Socket.IO",
+      "description": "Real-time bidirectional event-based communication library. Used for live GPS data streaming over WebSockets."
+    },
+    "skill:fastapi": {
+      "type": "skill",
+      "title": "FastAPI",
+      "description": "Modern, high-performance Python web framework with automatic OpenAPI docs. Used as the primary backend framework across multiple projects."
+    },
+    "skill:rag": {
+      "type": "skill",
+      "title": "RAG (Retrieval-Augmented Generation)",
+      "description": "Technique combining document retrieval with generative LLMs to produce context-aware, grounded outputs."
+    },
+    "skill:llm": {
+      "type": "skill",
+      "title": "LLM Integration",
+      "description": "Integrating large language models (e.g. Whisper, GPT variants) into production pipelines for transcription refinement and intent inference."
+    },
+    "skill:mcp": {
+      "type": "skill",
+      "title": "MCP (Model Context Protocol)",
+      "description": "Protocol for structured, context-rich communication between agents and tools. Used in TRACE to wire browser events to the local inference backend."
+    },
+    "skill:quic": {
+      "type": "skill",
+      "title": "QUIC Protocol",
+      "description": "Modern UDP-based transport protocol offering low-latency, multiplexed streams with built-in TLS. Used for the P2P file transfer layer."
+    },
+    "skill:p2p": {
+      "type": "skill",
+      "title": "P2P Networking",
+      "description": "Peer-to-peer network design without a central broker. Applied to build a LAN-native file sharing application using QUIC streams."
+    },
+    "skill:cloud-arch": {
+      "type": "skill",
+      "title": "Cloud Architecture",
+      "description": "Designing scalable, cost-efficient cloud systems. Applied in home-lab self-hosting and validated by the AWS CCP certification."
+    },
+    "skill:oss": {
+      "type": "skill",
+      "title": "Open Source Contribution",
+      "description": "Navigating large unfamiliar codebases, writing idiomatic patches, and working within community review processes."
+    },
+    "skill:linux": {
+      "type": "skill",
+      "title": "Linux Systems",
+      "description": "Deep familiarity with Linux internals — kernel drivers, device configuration, service management, and CLI tooling."
+    },
+    "skill:sqlite": {
+      "type": "skill",
+      "title": "SQLite",
+      "description": "Embedded, serverless relational database. Used in TRACE for local-first, privacy-preserving storage with PII stripping."
+    },
+
+    "hobby:oss-contrib": {
+      "type": "hobby",
+      "title": "Open Source Contributions",
+      "ref": "Open Source Contributions",
+      "description": "Active contributor to OSS projects — bug fixes, docs, and small features across several repos including sndcpy and okular."
+    },
+    "hobby:homelab": {
+      "type": "hobby",
+      "title": "Home Labing",
+      "ref": "Home Labing",
+      "description": "Building daily-use applications in a home lab — self-hosting services that don't exist for free in the market."
+    },
+    "hobby:driving": {
+      "type": "hobby",
+      "title": "Driving",
+      "ref": "Driving",
+      "description": "Long drives as a form of travel and exploration. Pairs naturally with the love for building location-aware tools."
+    }
+  },
+
+  "relations": [
+    { "from": "project:gpstracker",           "type": "uses",         "to": "skill:flutter" },
+    { "from": "project:gpstracker",           "type": "uses",         "to": "skill:flask" },
+    { "from": "project:gpstracker",           "type": "uses",         "to": "skill:socketio" },
+    { "from": "project:gpstracker",           "type": "applies",      "to": "cert:aws-ccp" },
+    { "from": "project:multilangtranscriber", "type": "uses",         "to": "skill:fastapi" },
+    { "from": "project:multilangtranscriber", "type": "uses",         "to": "skill:rag" },
+    { "from": "project:multilangtranscriber", "type": "uses",         "to": "skill:llm" },
+    { "from": "project:trace",                "type": "uses",         "to": "skill:fastapi" },
+    { "from": "project:trace",                "type": "uses",         "to": "skill:mcp" },
+    { "from": "project:trace",                "type": "uses",         "to": "skill:sqlite" },
+    { "from": "project:lanfxplorer",          "type": "uses",         "to": "skill:quic" },
+    { "from": "project:lanfxplorer",          "type": "uses",         "to": "skill:p2p" },
+    { "from": "project:sndcpy",               "type": "uses",         "to": "skill:oss" },
+    { "from": "project:sndcpy",               "type": "uses",         "to": "skill:linux" },
+    { "from": "project:okular",               "type": "uses",         "to": "skill:oss" },
+    { "from": "cert:aws-ccp",                 "type": "validates",    "to": "skill:cloud-arch" },
+    { "from": "hobby:oss-contrib",            "type": "demonstrates", "to": "skill:oss" },
+    { "from": "hobby:oss-contrib",            "type": "demonstrates", "to": "skill:linux" },
+    { "from": "hobby:homelab",                "type": "demonstrates", "to": "skill:cloud-arch" },
+    { "from": "hobby:homelab",                "type": "demonstrates", "to": "skill:linux" },
+    { "from": "hobby:driving",                "type": "motivated",    "to": "project:gpstracker" }
+  ]
+}
