@@ -46,6 +46,30 @@
       "description": "Contributed to Okular implementing Async printing option.",
       "status": "Not Applicable",
       "url": ""
+    },
+    {
+      "name": "MedCare AI",
+      "path": "https://github.com/karthikvvk/medcare-ai",
+      "description": "A production-grade, end-to-end pharmaceutical demand sensing, forecasting, and replenishment optimization platform.",
+      "tags": ["FastAPI", "XGBoost", "Streamlit", "Supply Chain"],
+      "status": "pending",
+      "url": ""
+    },
+    {
+      "name": "GalleryClassifier",
+      "path": "https://github.com/karthikvvk/GalleryClassifier",
+      "description": "An end-to-end, AI-powered image classification and gallery organization system with Flutter desktop and Web SPA frontends.",
+      "tags": ["Flutter", "FastAPI", "ONNX", "PyTorch"],
+      "status": "pending",
+      "url": ""
+    },
+    {
+      "name": "WorkspaceTreeMaker",
+      "path": "https://github.com/karthikvvk/WorkspaceTreeMaker",
+      "description": "A CLI tool that analyzes Python projects and generates a hierarchical tree of function calls, respecting .gitignore patterns.",
+      "tags": ["Python", "CLI", "AST"],
+      "status": "Not Applicable",
+      "url": ""
     }
   ],
   "certificates": [

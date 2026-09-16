@@ -42,6 +42,27 @@
       "description": "OSS contribution to the KDE document viewer implementing the Async printing option.",
       "url": "https://github.com/karthikvvk/okular"
     },
+    "project:medcare-ai": {
+      "type": "project",
+      "title": "MedCare AI",
+      "ref": "MedCare AI",
+      "description": "A production-grade, end-to-end pharmaceutical demand sensing, forecasting, and replenishment optimization platform.",
+      "url": "https://github.com/karthikvvk/medcare-ai"
+    },
+    "project:galleryclassifier": {
+      "type": "project",
+      "title": "GalleryClassifier",
+      "ref": "GalleryClassifier",
+      "description": "An end-to-end, AI-powered image classification and gallery organization system. Uses a fine-tuned EfficientNet-B0 model exported to ONNX for lightweight CPU inference.",
+      "url": "https://github.com/karthikvvk/GalleryClassifier"
+    },
+    "project:workspacetreemaker": {
+      "type": "project",
+      "title": "WorkspaceTreeMaker",
+      "ref": "WorkspaceTreeMaker",
+      "description": "A CLI tool that analyzes Python projects and generates a hierarchical tree of function calls.",
+      "url": "https://github.com/karthikvvk/WorkspaceTreeMaker"
+    },
 
     "cert:aws-ccp": {
       "type": "certification",
@@ -118,6 +139,26 @@
       "title": "SQLite",
       "description": "Embedded, serverless relational database. Used in TRACE for local-first, privacy-preserving storage with PII stripping."
     },
+    "skill:xgboost": {
+      "type": "skill",
+      "title": "XGBoost",
+      "description": "Optimized distributed gradient boosting library. Used for demand sensing and forecasting models."
+    },
+    "skill:streamlit": {
+      "type": "skill",
+      "title": "Streamlit",
+      "description": "Open-source app framework for Machine Learning and Data Science. Used for interactive dashboards."
+    },
+    "skill:onnx": {
+      "type": "skill",
+      "title": "ONNX (Open Neural Network Exchange)",
+      "description": "Open standard for machine learning interoperability. Used for exporting lightweight models for fast inference."
+    },
+    "skill:pytorch": {
+      "type": "skill",
+      "title": "PyTorch",
+      "description": "Open source machine learning framework. Used for training and fine-tuning deep learning models."
+    },
 
     "hobby:oss-contrib": {
       "type": "hobby",
@@ -140,18 +181,6 @@
   },
 
   "relations": [
-    { "from": "project:gpstracker",           "type": "uses",         "to": "skill:flutter" },
-    { "from": "project:gpstracker",           "type": "uses",         "to": "skill:flask" },
-    { "from": "project:gpstracker",           "type": "uses",         "to": "skill:socketio" },
-    { "from": "project:gpstracker",           "type": "applies",      "to": "cert:aws-ccp" },
-    { "from": "project:multilangtranscriber", "type": "uses",         "to": "skill:fastapi" },
-    { "from": "project:multilangtranscriber", "type": "uses",         "to": "skill:rag" },
-    { "from": "project:multilangtranscriber", "type": "uses",         "to": "skill:llm" },
-    { "from": "project:trace",                "type": "uses",         "to": "skill:fastapi" },
-    { "from": "project:trace",                "type": "uses",         "to": "skill:mcp" },
-    { "from": "project:trace",                "type": "uses",         "to": "skill:sqlite" },
-    { "from": "project:lanfxplorer",          "type": "uses",         "to": "skill:quic" },
-    { "from": "project:lanfxplorer",          "type": "uses",         "to": "skill:p2p" },
     { "from": "project:sndcpy",               "type": "uses",         "to": "skill:oss" },
     { "from": "project:sndcpy",               "type": "uses",         "to": "skill:linux" },
     { "from": "project:okular",               "type": "uses",         "to": "skill:oss" },
@@ -160,6 +189,45 @@
     { "from": "hobby:oss-contrib",            "type": "demonstrates", "to": "skill:linux" },
     { "from": "hobby:homelab",                "type": "demonstrates", "to": "skill:cloud-arch" },
     { "from": "hobby:homelab",                "type": "demonstrates", "to": "skill:linux" },
-    { "from": "hobby:driving",                "type": "motivated",    "to": "project:gpstracker" }
+    { "from": "hobby:driving",                "type": "motivated",    "to": "project:gpstracker" },
+    { "from": "project:gpstracker",           "type": "applies",      "to": "cert:aws-ccp" },
+    { "from": "project:lanfxplorer",          "type": "uses",         "to": "skill:flask" },
+    { "from": "project:lanfxplorer",          "type": "uses",         "to": "skill:flutter" },
+    { "from": "project:lanfxplorer",          "type": "uses",         "to": "skill:linux" },
+    { "from": "project:lanfxplorer",          "type": "uses",         "to": "skill:p2p" },
+    { "from": "project:lanfxplorer",          "type": "uses",         "to": "skill:quic" },
+    { "from": "project:lanfxplorer",          "type": "uses",         "to": "skill:streamlit" },
+    { "from": "project:galleryclassifier",    "type": "uses",         "to": "skill:fastapi" },
+    { "from": "project:galleryclassifier",    "type": "uses",         "to": "skill:flutter" },
+    { "from": "project:galleryclassifier",    "type": "uses",         "to": "skill:linux" },
+    { "from": "project:galleryclassifier",    "type": "uses",         "to": "skill:onnx" },
+    { "from": "project:galleryclassifier",    "type": "uses",         "to": "skill:pytorch" },
+    { "from": "project:multilangtranscriber", "type": "uses",         "to": "skill:fastapi" },
+    { "from": "project:multilangtranscriber", "type": "uses",         "to": "skill:flask" },
+    { "from": "project:multilangtranscriber", "type": "uses",         "to": "skill:llm" },
+    { "from": "project:multilangtranscriber", "type": "uses",         "to": "skill:linux" },
+    { "from": "project:multilangtranscriber", "type": "uses",         "to": "skill:pytorch" },
+    { "from": "project:multilangtranscriber", "type": "uses",         "to": "skill:rag" },
+    { "from": "project:gpstracker",           "type": "uses",         "to": "skill:flask" },
+    { "from": "project:gpstracker",           "type": "uses",         "to": "skill:flutter" },
+    { "from": "project:gpstracker",           "type": "uses",         "to": "skill:linux" },
+    { "from": "project:gpstracker",           "type": "uses",         "to": "skill:p2p" },
+    { "from": "project:gpstracker",           "type": "uses",         "to": "skill:sqlite" },
+    { "from": "project:gpstracker",           "type": "uses",         "to": "skill:socketio" },
+    { "from": "project:medcare-ai",           "type": "uses",         "to": "skill:fastapi" },
+    { "from": "project:medcare-ai",           "type": "uses",         "to": "skill:llm" },
+    { "from": "project:medcare-ai",           "type": "uses",         "to": "skill:oss" },
+    { "from": "project:medcare-ai",           "type": "uses",         "to": "skill:sqlite" },
+    { "from": "project:medcare-ai",           "type": "uses",         "to": "skill:streamlit" },
+    { "from": "project:medcare-ai",           "type": "uses",         "to": "skill:xgboost" },
+    { "from": "project:trace",                "type": "uses",         "to": "skill:cloud-arch" },
+    { "from": "project:trace",                "type": "uses",         "to": "skill:fastapi" },
+    { "from": "project:trace",                "type": "uses",         "to": "skill:llm" },
+    { "from": "project:trace",                "type": "uses",         "to": "skill:linux" },
+    { "from": "project:trace",                "type": "uses",         "to": "skill:mcp" },
+    { "from": "project:trace",                "type": "uses",         "to": "skill:oss" },
+    { "from": "project:trace",                "type": "uses",         "to": "skill:pytorch" },
+    { "from": "project:trace",                "type": "uses",         "to": "skill:sqlite" },
+    { "from": "project:workspacetreemaker",   "type": "uses",         "to": "skill:linux" }
   ]
 }
